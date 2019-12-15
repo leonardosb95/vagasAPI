@@ -1,6 +1,7 @@
 package br.com.vagas.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,16 +29,23 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.vagas.atualizacao.form.AtualizaCandidatoForm;
 import br.com.vagas.controller.dto.CandidatoDto;
+import br.com.vagas.controller.dto.VagaDto;
 import br.com.vagas.controller.form.CandidatoForm;
+import br.com.vagas.controller.form.VagaForm;
 import br.com.vagas.model.Candidato;
+import br.com.vagas.model.Vaga;
 import br.com.vagas.repository.CandidatoRepository;
-
+import br.com.vagas.repository.VagaRepository;
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/candidato")
 public class CandidatoController {
 
 	@Autowired
 	private CandidatoRepository candidatoRepository;
+	
+	@Autowired 
+	VagaRepository vagaRepository;
 
 	@GetMapping
 	@Cacheable(value = "listaDeCandidatos")
@@ -52,8 +61,37 @@ public class CandidatoController {
 		}
 	}
 
+	@GetMapping("/skills")
+	public List<Candidato> buscaSkills(){
+		List<Vaga> vagas =vagaRepository.findAll();
+		List<Candidato> candidatos=candidatoRepository.findAll();
+		
+		
+		
+		
+		int cont=0;
+		for (int i = 0; i < vagas.size(); i++) {
+			
+			for (int j = 0; j < candidatos.size(); j++) {
+				
+				String vetSkillsCandidato[]=candidatos.get(j).getSkillCandidato().split(",");
+				
+				if (vagas.get(i).getSkill().contains(vetSkillsCandidato[j])) {
+					cont++;
+					candidatos.get(j).setContSkills(cont);
+				}
+			}
+		}
+		System.out.println("Totais de skills: "+cont);	
+	
+		List<Candidato> candidatos10=candidatoRepository.busca10();
+		
+		return candidatos10;
+	}
 	
 	
+	
+
 	@PostMapping
 	@Transactional
 	@CacheEvict(value = "listaDeCandidatos", allEntries = true)

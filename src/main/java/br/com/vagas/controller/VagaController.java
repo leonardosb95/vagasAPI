@@ -1,6 +1,7 @@
 package br.com.vagas.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +32,7 @@ import br.com.vagas.controller.dto.VagaDto;
 import br.com.vagas.controller.form.VagaForm;
 import br.com.vagas.model.Vaga;
 import br.com.vagas.repository.VagaRepository;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/vaga")
 public class VagaController {
@@ -51,6 +53,7 @@ public class VagaController {
 			return VagaDto.converter(vagas);
 		}
 	}
+	
 
 	
 	

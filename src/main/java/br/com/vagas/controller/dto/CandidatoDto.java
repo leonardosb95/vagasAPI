@@ -15,15 +15,25 @@ public class CandidatoDto {
 	private String skillCandidato;
 	private String localDeTrabalho;
 
+	private int contSkills = 0;
+
 	public CandidatoDto(Candidato candidato) {
-		this.id=candidato.getId();
-		this.nickName=candidato.getNickName();
-		this.cpf=candidato.getCpf();
-		this.nomeCompleto=candidato.getNomeCompleto();
-		this.email=candidato.getEmail();
-		this.celular=candidato.getCelular();
-		this.skillCandidato=candidato.getSkillCandidato();
-		this.localDeTrabalho=candidato.getLocalDeTrabalho();
+		this.id = candidato.getId();
+		this.nickName = candidato.getNickName();
+		this.cpf = candidato.getCpf();
+		this.nomeCompleto = candidato.getNomeCompleto();
+		this.email = candidato.getEmail();
+		this.celular = candidato.getCelular();
+		this.skillCandidato = candidato.getSkillCandidato();
+		this.localDeTrabalho = candidato.getLocalDeTrabalho();
+	}
+
+	public int getContSkills() {
+		return contSkills;
+	}
+
+	public void setContSkills(int contSkills) {
+		this.contSkills = contSkills;
 	}
 
 	public Long getId() {

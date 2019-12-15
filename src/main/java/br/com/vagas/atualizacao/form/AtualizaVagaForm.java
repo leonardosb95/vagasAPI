@@ -5,7 +5,7 @@ import br.com.vagas.repository.VagaRepository;
 
 public class AtualizaVagaForm {
 
-	private String tokenId;
+	private String nomeEmpresa;
 	private String apresentacaoDaEmpresa;
 	private String nomeVaga;
 	private String nivelDaVaga;
@@ -13,12 +13,12 @@ public class AtualizaVagaForm {
 	private String localidadeDeTrabalho;
 	private String linkVaga;
 
-	public String getTokenId() {
-		return tokenId;
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
 	}
 
-	public void setTokenId(String tokenId) {
-		this.tokenId = tokenId;
+	public void setNomeEmpresa(String nomeEmpresa) {
+		this.nomeEmpresa = nomeEmpresa;
 	}
 
 	public String getApresentacaoDaEmpresa() {
@@ -77,7 +77,7 @@ public class AtualizaVagaForm {
 		vaga.setNivelDaVaga(this.nivelDaVaga);
 		vaga.setNomeVaga(this.nomeVaga);
 		vaga.setSkill(this.skill);
-		vaga.setTokenId(this.tokenId);
+		vaga.setNomeEmpresa(this.nomeEmpresa);
 
 		return vaga;
 	}

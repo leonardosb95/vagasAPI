@@ -12,6 +12,7 @@ public class CandidatoForm {
 	private String celular;
 	private String skillCandidato;
 	private String localDeTrabalho;
+	private String perfilLinkedin;
 
 	public String getEmail() {
 		return email;
@@ -70,7 +71,7 @@ public class CandidatoForm {
 	}
 
 	public Candidato converter(CandidatoRepository repo) {
-		return new Candidato(nickName, cpf, nomeCompleto,  email,celular,skillCandidato, localDeTrabalho);
+		return new Candidato(nickName, cpf, nomeCompleto,  email,celular,skillCandidato, localDeTrabalho,perfilLinkedin);
 	}
 
 }

@@ -20,17 +20,16 @@ public class Candidato {
 	private String celular;
 	private String skillCandidato;
 	private String localDeTrabalho;
+	private String perfilLinkedin;
 	
-	@OneToOne(mappedBy = "candidato",cascade = {CascadeType.ALL})
-	private PerfilLinkedin perfil;
+	private int contSkills=0;
 
 	public Candidato() {
 
 	}
-	
 
 	public Candidato(String nickName, String cpf, String nomeCompleto, String email, String celular,
-			String skillCandidato, String localDeTrabalho) {
+			String skillCandidato, String localDeTrabalho,String perfilLinkedin) {
 		this.nickName = nickName;
 		this.cpf = cpf;
 		this.nomeCompleto = nomeCompleto;
@@ -38,9 +37,8 @@ public class Candidato {
 		this.celular = celular;
 		this.skillCandidato = skillCandidato;
 		this.localDeTrabalho = localDeTrabalho;
+		this.perfilLinkedin=perfilLinkedin;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -65,6 +63,14 @@ public class Candidato {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getPerfilLinkedin() {
+		return perfilLinkedin;
+	}
+
+	public void setPerfilLinkedin(String perfilLinkedin) {
+		this.perfilLinkedin = perfilLinkedin;
 	}
 
 	public Long getId() {
@@ -130,5 +136,14 @@ public class Candidato {
 	public void setLocalDeTrabalho(String localDeTrabalho) {
 		this.localDeTrabalho = localDeTrabalho;
 	}
+
+	public int getContSkills() {
+		return contSkills;
+	}
+
+	public void setContSkills(int contSkills) {
+		this.contSkills = contSkills;
+	}
+	
 
 }

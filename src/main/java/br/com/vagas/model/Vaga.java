@@ -11,25 +11,22 @@ public class Vaga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String tokenId;
+
+	private String nomeEmpresa;
 	private String apresentacaoDaEmpresa;
 	private String nomeVaga;
 	private String nivelDaVaga;
 	private String skill;
 	private String localidadeDeTrabalho;
 	private String linkVaga;
-	
-	
-	
+
 	public Vaga() {
 
 	}
 
-	
-	public Vaga(String tokenId, String apresentacaoDaEmpresa, String nomeVaga, String nivelDaVaga, String skill,
+	public Vaga(String nomeEmpresa, String apresentacaoDaEmpresa, String nomeVaga, String nivelDaVaga, String skill,
 			String localidadeDeTrabalho, String linkVaga) {
-		this.tokenId = tokenId;
+		this.nomeEmpresa = nomeEmpresa;
 		this.apresentacaoDaEmpresa = apresentacaoDaEmpresa;
 		this.nomeVaga = nomeVaga;
 		this.nivelDaVaga = nivelDaVaga;
@@ -37,7 +34,6 @@ public class Vaga {
 		this.localidadeDeTrabalho = localidadeDeTrabalho;
 		this.linkVaga = linkVaga;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -72,77 +68,60 @@ public class Vaga {
 		this.id = id;
 	}
 
-
-	public String getTokenId() {
-		return tokenId;
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
 	}
 
-
-	public void setTokenId(String tokenId) {
-		this.tokenId = tokenId;
+	public void setNomeEmpresa(String nomeEmpresa) {
+		this.nomeEmpresa = nomeEmpresa;
 	}
-
 
 	public String getApresentacaoDaEmpresa() {
 		return apresentacaoDaEmpresa;
 	}
 
-
 	public void setApresentacaoDaEmpresa(String apresentacaoDaEmpresa) {
 		this.apresentacaoDaEmpresa = apresentacaoDaEmpresa;
 	}
-
 
 	public String getNomeVaga() {
 		return nomeVaga;
 	}
 
-
 	public void setNomeVaga(String nomeVaga) {
 		this.nomeVaga = nomeVaga;
 	}
-
 
 	public String getNivelDaVaga() {
 		return nivelDaVaga;
 	}
 
-
 	public void setNivelDaVaga(String nivelDaVaga) {
 		this.nivelDaVaga = nivelDaVaga;
 	}
-
 
 	public String getSkill() {
 		return skill;
 	}
 
-
 	public void setSkill(String skill) {
 		this.skill = skill;
 	}
-
 
 	public String getLocalidadeDeTrabalho() {
 		return localidadeDeTrabalho;
 	}
 
-
 	public void setLocalidadeDeTrabalho(String localidadeDeTrabalho) {
 		this.localidadeDeTrabalho = localidadeDeTrabalho;
 	}
-
 
 	public String getLinkVaga() {
 		return linkVaga;
 	}
 
-
 	public void setLinkVaga(String linkVaga) {
 		this.linkVaga = linkVaga;
 	}
-	
-
-	
 
 }

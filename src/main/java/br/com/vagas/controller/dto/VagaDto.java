@@ -7,7 +7,7 @@ import br.com.vagas.model.Vaga;
 public class VagaDto {
 
 	private Long id;
-	private String tokenId;
+	private String nomeEmpresa;
 	private String apresentacaoDaEmpresa;
 	private String nomeVaga;
 	private String nivelDaVaga;
@@ -17,7 +17,7 @@ public class VagaDto {
 
 	public VagaDto(Vaga vaga) {
 		this.id = vaga.getId();
-		this.tokenId = vaga.getTokenId();
+		this.nomeEmpresa = vaga.getNomeEmpresa();
 		this.apresentacaoDaEmpresa = vaga.getApresentacaoDaEmpresa();
 		this.nomeVaga = vaga.getNomeVaga();
 		this.nivelDaVaga = vaga.getNivelDaVaga();
@@ -34,12 +34,12 @@ public class VagaDto {
 		this.id = id;
 	}
 
-	public String getTokenId() {
-		return tokenId;
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
 	}
 
-	public void setTokenId(String tokenId) {
-		this.tokenId = tokenId;
+	public void setNomeEmpresa(String nomeEmpresa) {
+		this.nomeEmpresa = nomeEmpresa;
 	}
 
 	public String getApresentacaoDaEmpresa() {
